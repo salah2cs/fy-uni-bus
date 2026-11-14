@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>لوحة التحكم | في يوني باص</title>
+<style>
+* { margin:0; padding:0; box-sizing:border-box; font-family:'Segoe UI', Tahoma, sans-serif; }
+body { background:#f4f7ff; color:#1a2a4a; }
+header { background:#0a2a7a; color:#fff; padding:15px 20px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; }
+.logo { font-size:22px; font-weight:900; }
+.logo span { color:#ffcc00; font-size:14px; display:block; }
+.logo a { color:#fff; text-decoration:none; }
+header a { color:#fff; text-decoration:none; font-weight:700; }
+.container { max-width:1100px; margin:20px auto; padding:0 15px; }
+h2 { margin-bottom:15px; color:#0a2a7a; }
+
+/* كروت الإحصائيات */
+.stats { display:flex; gap:12px; flex-wrap:wrap; margin-bottom:20px; }
+.stat { background:#fff; flex:1; min-width:160px; padding:18px; border-radius:14px; text-align:center; box-shadow:0 5px 15px rgba(0,0,0,0.06); }
+.stat b { font-size:28px; display:block; color:#0a2a7a; }
+.stat span { color:#777; font-size:14px; }
+.stat.green b { color:#1a9c4a; }
+.stat.orange b { color:#e68a00; }
+.stat.red b { color:#d32f2f; }
+
+/* الفلاتر */
+.filters { background:#fff; padding:15px; border-radius:14px; display:flex; gap:10px; flex-wrap:wrap; margin-bottom:15px; box-shadow:0 5px 15px rgba(0,0,0,0.06); }
+.filters select, .filters input { padding:10px; border:2px solid #e0e7ff; border-radius:10px; font-size:15px; flex:1; min-width:140px; }
+.filters button { background:#0a2a7a; color:#fff; border:none; padding:10px 22px; border-radius:10px; font-weight:800; cursor:pointer; }
+
+/* الجدول */
+.table-box { background:#fff; border-radius:14px; overflow-x:auto; box-shadow:0 5px 15px rgba(0,0,0,0.06); }
+table { width:100%; border-collapse:collapse; min-width:850px; }
+th { background:#0a2a7a; color:#fff; padding:12px; text-align:right; font-size:15px; }
+td { padding:12px; border-bottom:1px solid #eef1ff; font-size:15px; }
+tr:hover td { background:#f8faff; }
+.badge { padding:5px 12px; border-radius:20px; font-size:13px; font-weight:800; }
+.badge-wait { background:#fff3cd; color:#856404; }
+.badge-ok { background:#d4edda; color:#155724; }
+.badge-no { background:#f8d7da; color:#721c24; }
+.btn-ok { background:#1a9c4a; color:#fff; border:none; padding:7px 14px; border-radius:8px; font-weight:800; cursor:pointer; }
+.btn-no { background:#d32f2f; color:#fff; border:none; padding:7px 14px; border-radius:8px; font-weight:800; cursor:pointer; margin-right:5px; }
+.btn-view { background:#1a6cff; color:#fff; border:none; padding:7px 12px; border-radius:8px; cursor:pointer; }
+.pay-info { background:#fff8e1; border:2px dashed #ffcc00; padding:15px; border-radius:12px; margin-top:20px; text-align:center; }
+.pay-info b { color:#d32f2f; font-size:22px; }
+footer { text-align:center; padding:20px; color:#888; font-size:14px; }
+@media(max-width:600px){ .stat{ min-width:45%; } }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo"><a href="index.html">🚌 في يوني باص <span>Fy-Uni-Bus - لوحة التحكم</span></a></div>
+  <div><a href="index.html">🏠 الرئيسية</a> | <a href="login.html">خروج</a></div>
+</header>
+
+<div class="container">
+  <h2>📊 لوحة تحكم الأدمن</h2>
+
+  <!-- الإحصائيات -->
+  <div class="stats">
+    <div class="stat"><b>128</b><span>إجمالي الحجوزات</span></div>
+    <div class="stat green"><b>95</b><span>تم الدفع ✅</span></div>
+    <div class="stat orange"><b>22</b><span>في انتظار الدفع ⏳</span></div>
+    <div class="stat red"><b>11</b><span>ملغي ❌</span></div>
+  </div>
+
+  <!-- الفلاتر -->
+  <div class="filters">
+    <select>
+      <option>كل الخطوط</option>
+      <option>طامية</option>
+      <option>سنهور وسنورس</option>
+      <option>ابشواي</option>
+      <option>الحامولي</option>
+      <option>الفيوم الجديدة</option>
+      <option>اطسا</option>
+      <option>الهرم</option>
+    </select>
+    <select>
+      <option>كل الحالات</option>
+      <option>في انتظار الدفع</option>
+      <option>تم الدفع</option>
+      <option>ملغي</option>
+    </select>
+    <input type="date">
+    <button>بحث 🔍</button>
+  </div>
+
+  <!-- جدول الحجوزات -->
+  <div class="table-box">
+    <table>
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>اسم الطالب</th>
+          <th>التليفون</th>
+          <th>الخط</th>
+          <th>التاريخ</th>
+          <th>الرحلة</th>
+          <th>رقم تحويل فودافون كاش</th>
+          <th>الحالة</th>
+          <th>إجراء</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>أحمد محمد علي</td>
+          <td>01012345678</td>
+          <td>طامية</td>
+          <td>2026-11-16</td>
+          <td>ذهاب وعودة</td>
+          <td>458921374</td>
+          <td><span class="badge badge-wait">⏳ في انتظار الدفع</span></td>
+          <td><button class="btn-ok">تأكيد ✅</button><button class="btn-no">رفض</button></td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>سارة محمود</td>
+          <td>01123456789</td>
+          <td>ابشواي</td>
+          <td>2026-11-16</td>
+          <td>ذهاب فقط</td>
+          <td>987654321</td>
+          <td><span class="badge badge-ok">✅ تم الدفع</span></td>
+          <td><button class="btn-view">عرض</button></td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>يوسف أحمد</td>
+          <td>01234567890</td>
+          <td>الهرم</td>
+          <td>2026-11-17</td>
+          <td>ذهاب وعودة</td>
+          <td>123456789</td>
+          <td><span class="badge badge-wait">⏳ في انتظار الدفع</span></td>
+          <td><button class="btn-ok">تأكيد ✅</button><button class="btn-no">رفض</button></td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td>منة الله خالد</td>
+          <td>01098765432</td>
+          <td>اطسا</td>
+          <td>2026-11-17</td>
+          <td>عودة فقط</td>
+          <td>-</td>
+          <td><span class="badge badge-no">❌ ملغي</span></td>
+          <td><button class="btn-view">عرض</button></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="pay-info">
+    💳 رقم محفظة فودافون كاش للتحقق من التحويلات<br>
+    <b>01011112222</b><br>
+    <span style="font-size:14px; color:#666;">راجع الرقم ده في تطبيق انا فودافون، لو التحويل وصل دوس تأكيد ✅</span>
+  </div>
+
+</div>
+
+<footer>في يوني باص - Fy-Uni-Bus | جامعة الفيوم - لوحة تحكم الأدمن</footer>
+
+</body>
+</html>

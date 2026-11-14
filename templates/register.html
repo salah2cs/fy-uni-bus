@@ -1,0 +1,91 @@
+
+
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>تسجيل حساب جديد | في يوني باص</title>
+<style>
+* { margin:0; padding:0; box-sizing:border-box; font-family:'Segoe UI', Tahoma, sans-serif; }
+body { background:#f4f7ff; color:#1a2a4a; }
+header { background:#0a2a7a; color:#fff; padding:15px 20px; display:flex; justify-content:space-between; align-items:center; }
+.logo { font-size:22px; font-weight:900; }
+.logo span { color:#ffcc00; font-size:14px; display:block; }
+.logo a { color:#fff; text-decoration:none; }
+.back { color:#fff; text-decoration:none; font-weight:700; }
+.box { background:#fff; max-width:520px; margin:30px auto; padding:28px; border-radius:18px; box-shadow:0 10px 30px rgba(0,0,0,0.1); }
+.box h2 { text-align:center; color:#0a2a7a; margin-bottom:5px; font-size:26px; }
+.box p { text-align:center; color:#777; margin-bottom:20px; }
+label { display:block; margin:12px 0 5px; font-weight:700; }
+input, select { width:100%; padding:12px; border:2px solid #e0e7ff; border-radius:10px; font-size:16px; outline:none; }
+input:focus, select:focus { border-color:#1a6cff; }
+button { width:100%; background:#0a2a7a; color:#fff; border:none; padding:14px; border-radius:10px; font-size:18px; font-weight:900; margin-top:20px; cursor:pointer; }
+button:hover { background:#1a6cff; }
+.link { text-align:center; margin-top:15px; }
+.link a { color:#1a6cff; font-weight:800; text-decoration:none; }
+.note { background:#fff8e1; border:1px dashed #ffcc00; padding:12px; border-radius:10px; text-align:center; font-size:14px; margin-top:15px; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo"><a href="index.html">🚌 في يوني باص <span>Fy-Uni-Bus</span></a></div>
+  <a class="back" href="index.html">🏠 الرئيسية</a>
+</header>
+
+<div class="box">
+  <h2>📝 إنشاء حساب جديد</h2>
+  <p>سجل مرة واحدة واحجز بعد كده في ثواني</p>
+
+  <form action="/register" method="POST">
+    <label>الاسم بالكامل</label>
+    <input type="text" name="name" placeholder="مثال: أحمد محمد علي" required>
+
+    <label>رقم التليفون</label>
+    <input type="tel" name="phone" placeholder="01xxxxxxxxx" required>
+
+    <label>كلمة السر</label>
+    <input type="password" name="password" placeholder="اختار كلمة سر قوية" required>
+
+    <label>تأكيد كلمة السر</label>
+    <input type="password" name="confirm_password" placeholder="اكتبها تاني" required>
+
+    <label>الكلية</label>
+    <select name="college" required>
+      <option value="">-- اختار كليتك --</option>
+      <option>كلية التربية</option>
+      <option>كلية الآداب</option>
+      <option>كلية العلوم</option>
+      <option>كلية الهندسة</option>
+      <option>كلية الطب</option>
+      <option>كلية التمريض</option>
+      <option>كلية التجارة</option>
+      <option>كلية الحقوق</option>
+      <option>كلية الزراعة</option>
+      <option>كلية الحاسبات والمعلومات</option>
+      <option>كلية أخرى</option>
+    </select>
+
+    <label>الخط بتاعك</label>
+    <select name="route" required>
+      <option value="">-- اختار خطك الأساسي --</option>
+      <option>طامية</option>
+      <option>سنهور وسنورس</option>
+      <option>ابشواي</option>
+      <option>الحامولي</option>
+      <option>الفيوم الجديدة</option>
+      <option>اطسا</option>
+      <option>الهرم</option>
+    </select>
+
+    <button type="submit">إنشاء الحساب 🚌</button>
+  </form>
+
+  <div class="link">عندك حساب؟ <a href="login.html">سجل دخول</a></div>
+  <div class="note">بالضغط على إنشاء الحساب أنت موافق على شروط في يوني باص - جامعة الفيوم</div>
+</div>
+
+</body>
+</html>
