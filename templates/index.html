@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>في يوني باص | Fy-Uni-Bus</title>
+<style>
+* { margin:0; padding:0; box-sizing:border-box; font-family:'Segoe UI', Tahoma, sans-serif; }
+body { background:#f4f7ff; color:#1a2a4a; }
+header { background:#0a2a7a; color:#fff; padding:15px 20px; display:flex; justify-content:space-between; align-items:center; }
+.logo { font-size:24px; font-weight:900; }
+.logo span { color:#ffcc00; font-size:15px; display:block; }
+.phone { background:#ffcc00; color:#0a2a7a; padding:8px 16px; border-radius:30px; font-weight:800; text-decoration:none; }
+.hero { background:linear-gradient(135deg,#0a2a7a,#1a6cff); color:#fff; text-align:center; padding:45px 20px; }
+.hero h1 { font-size:38px; }
+.hero h1 span { color:#ffcc00; }
+.hero p { margin:12px 0 22px; font-size:18px; }
+.btn { background:#ffcc00; color:#0a2a7a; padding:13px 30px; border-radius:30px; font-weight:900; font-size:19px; text-decoration:none; display:inline-block; }
+.btn2 { background:#fff; color:#0a2a7a; padding:13px 22px; border-radius:30px; font-weight:800; text-decoration:none; display:inline-block; margin-right:10px; }
+.features { display:flex; gap:15px; justify-content:center; padding:25px 15px; flex-wrap:wrap; }
+.card { background:#fff; width:300px; padding:22px; border-radius:16px; text-align:center; box-shadow:0 5px 20px rgba(0,0,0,0.08); }
+.card h3 { color:#0a2a7a; margin:10px 0 5px; }
+.routes { display:flex; flex-wrap:wrap; gap:10px; justify-content:center; padding:0 20px 25px; }
+.route { background:#fff; border:2px solid #e0e7ff; padding:10px 20px; border-radius:50px; font-weight:700; }
+.booking { background:#fff; max-width:550px; margin:0 auto 35px; padding:25px; border-radius:18px; box-shadow:0 10px 30px rgba(0,0,0,0.1); }
+.booking h2 { text-align:center; color:#0a2a7a; margin-bottom:15px; }
+.booking label { display:block; margin:10px 0 5px; font-weight:700; }
+.booking input, .booking select { width:100%; padding:12px; border:2px solid #e0e7ff; border-radius:10px; font-size:16px; }
+.booking button { width:100%; background:#0a2a7a; color:#fff; border:none; padding:14px; border-radius:10px; font-size:18px; font-weight:900; margin-top:18px; cursor:pointer; }
+.pay-box { background:#fff8e1; border:2px dashed #ffcc00; padding:15px; border-radius:12px; text-align:center; margin-top:15px; }
+.pay-box b { color:#d32f2f; font-size:22px; }
+footer { background:#0a2a7a; color:#fff; text-align:center; padding:20px; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">🚌 في يوني باص <span>Fy-Uni-Bus</span></div>
+  <a class="phone" href="tel:01011112222">📞 01011112222</a>
+</header>
+
+<section class="hero">
+  <h1>باص الجامعة رجع! <br><span>احجز مكانك لجامعة الفيوم</span></h1>
+  <p>سجل - احجز - ادفع فودافون كاش - اركب</p>
+  <a href="#booking" class="btn">احجز الآن</a>
+  <a href="login.html" class="btn2">دخول الطلاب</a>
+</section>
+
+<section class="features">
+  <div class="card"><div style="font-size:35px;">📝</div><h3>سجل حسابك</h3><p>سجل مرة واحدة باسمك ورقمك والخط بتاعك</p></div>
+  <div class="card"><div style="font-size:35px;">🚌</div><h3>احجز الباص</h3><p>اختار الخط واليوم ذهاب أو عودة أو ذهاب وعودة</p></div>
+  <div class="card"><div style="font-size:35px;">💳</div><h3>ادفع فودافون كاش</h3><p>حول على 01011112222 وابعت رقم التحويل</p></div>
+</section>
+
+<h2 style="text-align:center; color:#0a2a7a; margin-bottom:15px;">🚌 خطوطنا - 7 خطوط</h2>
+<div class="routes">
+  <div class="route">طامية</div>
+  <div class="route">سنهور وسنورس</div>
+  <div class="route">ابشواي</div>
+  <div class="route">الحامولي</div>
+  <div class="route">الفيوم الجديدة</div>
+  <div class="route">اطسا</div>
+  <div class="route">الهرم</div>
+</div>
+
+<section class="booking" id="booking">
+  <h2>📝 حجز الباص</h2>
+  <form action="/book" method="POST">
+    <label>اسم الطالب</label>
+    <input type="text" name="name" placeholder="اسمك بالكامل" required>
+    <label>رقم التليفون</label>
+    <input type="tel" name="phone" placeholder="01xxxxxxxxx" required>
+    <label>الخط</label>
+    <select name="route" required>
+      <option value="">-- اختار خطك --</option>
+      <option>طامية</option><option>سنهور وسنورس</option><option>ابشواي</option>
+      <option>الحامولي</option><option>الفيوم الجديدة</option><option>اطسا</option><option>الهرم</option>
+    </select>
+    <label>نوع الرحلة</label>
+    <select name="trip_type"><option>ذهاب وعودة</option><option>ذهاب فقط</option><option>عودة فقط</option></select>
+    <label>تاريخ الرحلة</label>
+    <input type="date" name="date" required>
+    <label>رقم عملية تحويل فودافون كاش</label>
+    <input type="text" name="transfer_number" placeholder="اكتب رقم العملية بعد التحويل" required>
+    <div class="pay-box">
+      💳 حول قيمة الحجز على فودافون كاش<br>
+      <b>01011112222</b><br>
+      وبعدين اكتب رقم العملية فوق
+    </div>
+    <button type="submit">تأكيد الحجز 🚌</button>
+  </form>
+</section>
+
+<footer>
+  في يوني باص - <b style="color:#ffcc00;">Fy-Uni-Bus</b> | جامعة الفيوم<br>
+  للتواصل: <b style="color:#ffcc00;">01011112222</b>
+</footer>
+
+</body>
+</html>
